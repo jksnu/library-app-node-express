@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta charset="utf-8">
+  <title><%= title%></title>
+  <meta name="generator" content="Bootply" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet">
+  <!--[if lt IE 9]>
+			<script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+  <link href="css/styles.css" rel="stylesheet">
+</head>
+
+<body>
+
+  <!--Navigation bar start-->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="/home">Home <span class="sr-only">(current)</span></a>
+        </li>
+        
+        <% for(let i=0; i<nav.length; i++){%>
+          <li class="nav-items">
+            <a class="nav-link" href="<%=nav[i].link%>"><%=nav[i].title%></a>
+          </li>
+        <%}%>
+      </ul>
+      <form class="form-inline my-2 my-lg-0">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+      </form>
+    </div>
+  </nav>
+  <!--Navigation bar ends-->
+
+  <div id="masthead">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-7">
+          <h1><%= title%>
+            <p class="lead"></p>
+          </h1>
+        </div>        
+      </div>
+    </div><!-- /cont -->
+  </div>
+
+
+  <div class="container">
+    <div class="row">
+
+      <div class="col-md-6">
+
+        <strong>Existing User</strong><br><br>
+        <form action="/auth/signin" method="POST">
+          <div class="form-group">
+            <label for="username">Email address:</label>
+            <input type="text" class="form-control" id="username" name="userName">
+          </div>
+          <div class="form-group">
+            <label for="password">Password:</label>
+            <input type="password" class="form-control" id="password" name="password">
+          </div>
+          <button type="submit" class="btn btn-primary">Submit</button>          
+        </form>
+      </div>
+        <div class="col-md-6">
+          <strong> User: Sign up form</strong><br><br>
+          <form action="/auth/signup" method="POST">
+            <div class="form-group">
+              <label for="name">Email address:</label>
+              <input type="text" class="form-control" id="name" name="name">
+            </div>
+            <div class="form-group">
+              <label for="username">Email address:</label>
+              <input type="text" class="form-control" id="username" name="userName">
+            </div>
+            <div class="form-group">
+              <label for="password">Password:</label>
+              <input type="password" class="form-control" id="password" name="password">
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </form>
+        </div>
+
+
+
+      </div>
+      <!--/col-12-->
+    </div>
+  </div>
+
+
+  <hr>
+
+  <div class="container" id="footer">
+    <div class="row">
+      <div class="col col-sm-12">
+
+        <h1>Follow Us</h1>
+        <div class="btn-group">
+          <a class="btn btn-twitter btn-lg" href="#"><i class="icon-twitter icon-large"></i> Twitter</a>
+          <a class="btn btn-facebook btn-lg" href="#"><i class="icon-facebook icon-large"></i> Facebook</a>
+          <a class="btn btn-google-plus btn-lg" href="#"><i class="icon-google-plus icon-large"></i> Google+</a>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <hr>
+
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-6">
+          <ul class="list-inline">
+            <li><i class="icon-facebook icon-2x"></i></li>
+            <li><i class="icon-twitter icon-2x"></i></li>
+            <li><i class="icon-google-plus icon-2x"></i></li>
+            <li><i class="icon-pinterest icon-2x"></i></li>
+          </ul>
+
+        </div>
+        <div class="col-sm-6">
+          <p class="pull-right">Built with <i class="icon-heart-empty"></i> at <a
+              href="http://www.bootply.com">Bootply</a></p>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <!-- script references -->
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+</body>
+
+</html>
