@@ -24,6 +24,7 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use("/css", express.static(path.join(__dirname, "/node_modules/bootstrap/dist/css")));
 app.use("/js", express.static(path.join(__dirname, "node_modules/bootstrap/dist/js")));
 app.use("/js", express.static(path.join(__dirname, "/node_modules/jquery/dist")));
+
 app.use((req, res, next) => {
     if(res.body === undefined || res.body === null){
         res.body = {};
@@ -44,11 +45,16 @@ app.set('views', './src/views');
 app.set('view engine', 'ejs');
 
 app.get('/', (req, res) => {
+    let userName;
+    if(req.user && req.user.name){
+        userName = req.user.name;
+    }
     res.render(
         'index',
         {
             nav,
-            "title": "Library"
+            "title": "Library",
+            "userName": userName
         }
     );
 });

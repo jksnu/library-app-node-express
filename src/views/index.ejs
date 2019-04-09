@@ -56,11 +56,13 @@
     <div class="row">
 
       <div class="col-md-6">
-
+        <% if(userName !== undefined){ %>
+          Welcome <%= userName%>
+        <%} else {%>
         <strong>Existing User</strong><br><br>
         <form action="/auth/signin" method="POST">
           <div class="form-group">
-            <label for="username">Email address:</label>
+            <label for="username">User name:</label>
             <input type="text" class="form-control" id="username" name="userName">
           </div>
           <div class="form-group">
@@ -69,16 +71,18 @@
           </div>
           <button type="submit" class="btn btn-primary">Submit</button>          
         </form>
+        <% } %>
       </div>
+      
         <div class="col-md-6">
           <strong> User: Sign up form</strong><br><br>
           <form action="/auth/signup" method="POST">
             <div class="form-group">
-              <label for="name">Email address:</label>
+              <label for="name">Name:</label>
               <input type="text" class="form-control" id="name" name="name">
             </div>
             <div class="form-group">
-              <label for="username">Email address:</label>
+              <label for="username">User name:</label>
               <input type="text" class="form-control" id="username" name="userName">
             </div>
             <div class="form-group">

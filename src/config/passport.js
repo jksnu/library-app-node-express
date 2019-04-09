@@ -14,5 +14,5 @@ module.exports = function passportConfig(app){
     passport.deserializeUser((user, done) => {
         done(null, user);
     });
-    require('./strategies/local.strategy');
+    require('./strategies/local.strategy')();
 }

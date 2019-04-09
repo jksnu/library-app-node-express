@@ -1,5 +1,13 @@
 var exports = module.exports = {};
 
+function getUserName(req){
+    let name = "Unknown user";
+    if(req.user && req.user.name){
+        name = req.user.name;
+    }
+    return name;
+}
+
 exports.send = function(req, res, next){
     res.send(res.body);
     next();
@@ -8,12 +16,14 @@ exports.send = function(req, res, next){
 exports.booksRender = function(req, res, next){ 
     let nav = res.locals.nav; 
     let books = res.body.data;
+    
     res.render(
         'books',
         {
             nav,
             "title": "Library",
-            books
+            books,
+            "userName": getUserName(req)
         }
     );
     next();
@@ -27,7 +37,8 @@ exports.bookRender = function(req, res, next){
         {
             nav,
             "title": book.title,
-            book
+            book,
+            "userName": getUserName(req)
         }
     );
     next();
