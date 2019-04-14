@@ -4,12 +4,8 @@ const bookCtrl = require('../controller/bookCtrl');
 const responseHandler = require('../responseHandler/responseHandler');
 const libraryUtil = require('../utils/libraryUtil');
 
-function router(nav){  
-    bookRouter.use(libraryUtil.authenticateRoute);     
-    bookRouter.get('/', bookCtrl.getBooks, responseHandler.booksRender);
-    bookRouter.get('/singleBook/:id', bookCtrl.getBook, responseHandler.bookRender);
-    
-    return bookRouter;
-}
+bookRouter.use(libraryUtil.authenticateRoute);     
+bookRouter.get('/', bookCtrl.getBooks, responseHandler.booksRender);
+bookRouter.get('/singleBook/:id', bookCtrl.getBook, responseHandler.bookRender);
 
-module.exports = router;
+module.exports = bookRouter;

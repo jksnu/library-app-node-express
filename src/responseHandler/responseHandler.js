@@ -1,5 +1,10 @@
 var exports = module.exports = {};
 
+const nav = [
+    {"link": "/books", "title":"Books"}, 
+    {"link": "/author", "title":"Authors"}
+];
+
 function getUserName(req){
     let name = "Unknown user";
     if(req.user && req.user.name){
@@ -14,9 +19,7 @@ exports.send = function(req, res, next){
 }
 
 exports.booksRender = function(req, res, next){ 
-    let nav = res.locals.nav; 
-    let books = res.body.data;
-    
+    let books = res.body.data;    
     res.render(
         'books',
         {
@@ -30,7 +33,6 @@ exports.booksRender = function(req, res, next){
 }
 
 exports.bookRender = function(req, res, next){ 
-    let nav = res.locals.nav; 
     let book = res.body.data;
     res.render(
         'singleBook',
@@ -38,6 +40,18 @@ exports.bookRender = function(req, res, next){
             nav,
             "title": book.title,
             book,
+            "userName": getUserName(req)
+        }
+    );
+    next();
+}
+
+exports.homeRender = function(req, res, next){
+    res.render(
+        'index',
+        {
+            nav,
+            "title": "Library",
             "userName": getUserName(req)
         }
     );

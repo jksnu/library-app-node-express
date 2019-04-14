@@ -8,3 +8,10 @@ exports.authenticateRoute = function(req, res, next){
         next();
     }    
 }
+
+exports.addResponseBody = function(req, res, next) {
+    if(res.body === undefined || res.body === null){
+        res.body = {};
+    }
+    next();
+}
